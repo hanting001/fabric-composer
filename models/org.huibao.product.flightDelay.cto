@@ -1,0 +1,53 @@
+namespace org.huibao.product.flightDelay
+
+import org.huibao.product.*
+import org.huibao.participant.*
+
+enum DelayLevel {
+  o NO
+  o HH
+  o ONEH
+  o TWOH
+  o THREEH
+  o CACEL
+}
+
+asset FlightDelayProduct extends Product {
+
+}
+
+asset FlightDelayContract extends Contract {
+  --> FlightInfo flightInfo 
+  o Boolean isClaimed default = false
+  o Boolean isValid optional
+}
+
+asset FlightInfo identified by fid {
+  o String fid
+  o String FlightNO
+  o DateTime FlightDate
+  o Boolean isDelay optional
+  o DelayLevel delayLevel optional
+}
+
+@commit(false)
+@returns(Integer)
+transaction GetPriceTx {
+  o String pid
+}
+@returns(FlightDelayContract)
+transaction JoinTx {
+  --> User user
+  --> FlightInfo flightInfo
+}
+event JoinedEvent {
+  --> FlightDelayContract contract
+}
+
+transaction ClaimTx {
+  --> FlightInfo flightInfo
+}
+event ClaimedEvent {
+  o Boolean result
+}
+

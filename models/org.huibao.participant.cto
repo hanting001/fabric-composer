@@ -1,0 +1,17 @@
+
+namespace org.huibao.participant
+
+participant User identified by uid {
+  o String uid
+  o String name
+  o String idNO
+  o Integer point default = 0
+}
+participant Regulator identified by rid {
+  o String rid
+  o String name
+}
+participant Operator identified by oid {
+  o String oid
+  o String name
+}

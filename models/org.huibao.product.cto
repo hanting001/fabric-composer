@@ -1,0 +1,46 @@
+namespace org.huibao.product
+
+import org.huibao.participant.*
+/**
+ * An enumerated type
+ */
+enum ProductType {
+  o PROPERTY
+  o LIFE
+  o VEGETABLES
+}
+/**
+ * An enumerated type
+ */
+enum ProductStatus {
+  o READY
+  o ON
+  o OFF
+  o REMOVE
+}
+asset Sequnce identified by sid {
+  o String sid
+  o Integer next default = 0
+}
+
+/**
+ * A common product define.
+ */
+abstract asset Product identified by pid {
+  o String pid
+  o Integer premium
+  o Integer insuredAmount
+  o String name
+  o String description
+  o ProductStatus status
+}
+
+abstract asset Contract identified by cid {
+  o String cid
+  --> User insured
+  --> Operator operator optional
+  o String pid optional
+  o Integer amounce optional
+  o Integer count optional
+}
+
