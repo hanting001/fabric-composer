@@ -2,11 +2,11 @@
   "engines": {
     "composer": "^0.20.4"
   },
-  "name": "token-network",
+  "name": "huibao-network",
   "version": "0.0.1",
-  "description": "knot token business network",
+  "description": "huibao business network",
   "scripts": {
-    "prepublish": "mkdirp ./dist && composer archive create --sourceType dir --sourceName . -a ./dist/token-network.bna",
+    "prepublish": "mkdirp ./dist && composer archive create --sourceType dir --sourceName . -a ./dist/huibao-network.bna",
     "pretest": "npm run lint",
     "lint": "eslint .",
     "test": "nyc mocha -t 0 test/*.js && cucumber-js"

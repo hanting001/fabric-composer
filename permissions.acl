@@ -27,3 +27,17 @@ rule NetworkAdminSystem {
     resource: "org.hyperledger.composer.system.**"
     action: ALLOW
 }
+rule Operator {
+  description: "Operator can full access to business resources"
+  participant: "org.huibao.participant.Operator"
+  operation: ALL
+  resource: "org.huibao.**"
+  action: ALLOW
+}
+rule OperatorSystem {
+  description: "Operator can read system resources"
+  participant: "org.huibao.participant.Operator"
+  operation: ALL
+  resource: "org.hyperledger.composer.system.**"
+  action: ALLOW
+}
