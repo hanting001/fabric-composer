@@ -35,9 +35,9 @@ rule Operator {
   action: ALLOW
 }
 rule OperatorSystem {
-  description: "Operator can read system resources"
+  description: "Operator can read system resources only"
   participant: "org.huibao.participant.Operator"
-  operation: ALL
+  operation: READ
   resource: "org.hyperledger.composer.system.**"
   action: ALLOW
 }
