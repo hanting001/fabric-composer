@@ -6,6 +6,7 @@ participant User identified by uid {
   o String idNO
   o Integer point default = 0
 }
+//由于华为云不支持CA，所以Regulator和Operator暂时不用
 participant Regulator identified by rid {
   o String rid
   o String name

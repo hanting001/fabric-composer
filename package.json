@@ -1,8 +1,8 @@
 {
   "engines": {
-    "composer": "^0.20.4"
+    "composer": "^0.19.18"
   },
-  "name": "huibao-network",
+  "name": "huibao-huawei-network",
   "version": "0.0.1",
   "description": "huibao business network",
   "scripts": {

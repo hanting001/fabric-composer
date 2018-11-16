@@ -1,6 +1,7 @@
 namespace org.huibao.product
 
 import org.huibao.participant.*
+import org.hyperledger.composer.system.NetworkAdmin
 /**
  * An enumerated type
  */
@@ -38,7 +39,8 @@ abstract asset Product identified by pid {
 abstract asset Contract identified by cid {
   o String cid
   --> User insured
-  --> Operator operator optional
+  // 因为华为云区块链服务还不支持CA，不能通过networkAdmin发行新的身份给participant，所以这里就用默认的NetworkAdimin用户做管理员
+  --> NetworkAdmin operator optional
   o String pid optional
   o Integer amounce optional
   o Integer count optional

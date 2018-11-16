@@ -24,8 +24,8 @@ asset FlightDelayContract extends Contract {
 
 asset FlightInfo identified by fid {
   o String fid
-  o String FlightNO
-  o DateTime FlightDate
+  o String flightNO
+  o String flightDate
   o Boolean isDelay optional
   o DelayLevel delayLevel optional
 }
@@ -38,7 +38,7 @@ transaction GetPriceTx {
 @returns(FlightDelayContract)
 transaction JoinTx {
   --> User user
-  --> FlightInfo flightInfo
+  o FlightInfo flightInfo
 }
 event JoinedEvent {
   --> FlightDelayContract contract
