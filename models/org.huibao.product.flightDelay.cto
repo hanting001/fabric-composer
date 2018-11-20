@@ -28,6 +28,9 @@ asset FlightInfo identified by fid {
   o String flightDate
   o Boolean isDelay optional
   o DelayLevel delayLevel optional
+  o DateTime  flightDeptimePlanDate //计划起飞时间
+  o DateTime  flightArrtimePlanDate //计划到达时间
+  o DateTime  flightArrtimeDate optional //实际到达时间
 }
 
 @commit(false)
@@ -38,7 +41,8 @@ transaction GetPriceTx {
 @returns(FlightDelayContract)
 transaction JoinTx {
   --> User user
-  o FlightInfo flightInfo
+  o String flightNO
+  o String flightDate
 }
 event JoinedEvent {
   --> FlightDelayContract contract
