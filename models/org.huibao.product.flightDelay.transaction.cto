@@ -10,6 +10,7 @@ transaction GetPriceTx {
 }
 @returns(FlightDelayContract)
 transaction JoinTx {
+  o String pid
   --> User user
   --> FlightInfo flightInfo
 }
@@ -40,5 +41,6 @@ event ClaimedEvent {
 
 @returns(FlightDelayContract)
 transaction FinalPaidTx {
+  o String pid
   --> FlightDelayContract contract
 }
