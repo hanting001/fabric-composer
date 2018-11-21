@@ -9,7 +9,7 @@ enum DelayLevel {
   o ONEH
   o TWOH
   o THREEH
-  o CACEL
+  o CANCEL
 }
 
 asset FlightDelayProduct extends Product {
@@ -18,8 +18,6 @@ asset FlightDelayProduct extends Product {
 
 asset FlightDelayContract extends Contract {
   --> FlightInfo flightInfo 
-  o Boolean isClaimed default = false
-  o Boolean isValid optional
 }
 
 asset FlightInfo identified by fid {
@@ -27,6 +25,7 @@ asset FlightInfo identified by fid {
   o String flightNO
   o String flightDate
   o Boolean isDelay optional
+  o Boolean checked default = false
   o DelayLevel delayLevel optional
   o DateTime  flightDeptimePlanDate //计划起飞时间
   o DateTime  flightArrtimePlanDate //计划到达时间

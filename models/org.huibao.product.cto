@@ -19,6 +19,11 @@ enum ProductStatus {
   o OFF
   o REMOVE
 }
+enum ContractStatus {
+  o VALID
+  o INVALID
+  o PAID
+}
 asset Sequnce identified by sid {
   o String sid
   o Integer next default = 0
@@ -29,11 +34,13 @@ asset Sequnce identified by sid {
  */
 abstract asset Product identified by pid {
   o String pid
-  o Integer premium
-  o Integer insuredAmount
+  o Integer premium //保费
+  o Integer insuredAmount default = 0//总保费
+  o Integer payedAmount default = 0//总赔付
   o String name
   o String description
   o ProductStatus status
+  o ProductType type
 }
 
 abstract asset Contract identified by cid {
@@ -44,4 +51,7 @@ abstract asset Contract identified by cid {
   o String pid optional
   o Integer amounce optional
   o Integer count optional
+  o Integer compensation optional
+  o Boolean isClaimed default = false
+  o ContractStatus status default = 'VALID'
 }

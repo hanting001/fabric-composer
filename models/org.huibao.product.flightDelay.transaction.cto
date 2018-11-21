@@ -29,9 +29,16 @@ transaction CheckFlightDelayTx {
   --> FlightInfo flightInfo
 }
 
+@returns(FlightDelayContract)
 transaction ClaimTx {
+  --> User user
   --> FlightInfo flightInfo
 }
 event ClaimedEvent {
   o Boolean result
+}
+
+@returns(FlightDelayContract)
+transaction FinalPaidTx {
+  --> FlightDelayContract contract
 }

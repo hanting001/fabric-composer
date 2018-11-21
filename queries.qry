@@ -1,0 +1,8 @@
+/** Sample queries for flight delay product
+*/
+
+query selectContractByFlightInfo {
+  description: "select contract by flight info and user"
+  statement: 
+    SELECT org.huibao.product.flightDelay.asset.FlightDelayContract WHERE (flightInfo == _$inFlightInfo AND insured == _$inUser)
+}
