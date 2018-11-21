@@ -1,4 +1,4 @@
-namespace org.huibao.product.flightDelay
+namespace org.huibao.product.flightDelay.asset
 
 import org.huibao.product.*
 import org.huibao.participant.*
@@ -31,27 +31,5 @@ asset FlightInfo identified by fid {
   o DateTime  flightDeptimePlanDate //计划起飞时间
   o DateTime  flightArrtimePlanDate //计划到达时间
   o DateTime  flightArrtimeDate optional //实际到达时间
+  o String flightState optional //飞行状态
 }
-
-@commit(false)
-@returns(Integer)
-transaction GetPriceTx {
-  o String pid
-}
-@returns(FlightDelayContract)
-transaction JoinTx {
-  --> User user
-  o String flightNO
-  o String flightDate
-}
-event JoinedEvent {
-  --> FlightDelayContract contract
-}
-
-transaction ClaimTx {
-  --> FlightInfo flightInfo
-}
-event ClaimedEvent {
-  o Boolean result
-}
-

@@ -45,4 +45,3 @@ abstract asset Contract identified by cid {
   o Integer amounce optional
   o Integer count optional
 }
-

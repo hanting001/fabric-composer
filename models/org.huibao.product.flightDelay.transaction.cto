@@ -1,0 +1,37 @@
+namespace org.huibao.product.flightDelay.transaction
+
+import org.huibao.product.flightDelay.asset.*
+import org.huibao.participant.*
+
+@commit(false)
+@returns(Integer)
+transaction GetPriceTx {
+  o String pid
+}
+@returns(FlightDelayContract)
+transaction JoinTx {
+  --> User user
+  --> FlightInfo flightInfo
+}
+event JoinedEvent {
+  --> FlightDelayContract contract
+}
+
+
+@returns(FlightInfo)
+transaction CheckFlightTx {
+  o String flightNO
+  o String flightDate
+}
+
+@returns(FlightInfo)
+transaction CheckFlightDelayTx {
+  --> FlightInfo flightInfo
+}
+
+transaction ClaimTx {
+  --> FlightInfo flightInfo
+}
+event ClaimedEvent {
+  o Boolean result
+}
