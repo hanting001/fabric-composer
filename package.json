@@ -2,8 +2,8 @@
   "engines": {
     "composer": "^0.19.18"
   },
-  "name": "huibao-huawei-network",
-  "version": "0.0.1",
+  "name": "huibao-network-1",
+  "version": "0.0.2",
   "description": "huibao business network",
   "scripts": {
     "prepublish": "mkdirp ./dist && composer archive create --sourceType dir --sourceName . -a ./dist/huibao-network.bna",
